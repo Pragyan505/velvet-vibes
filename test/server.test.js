@@ -65,4 +65,15 @@ test("lead validation and creation", async (t) => {
   const leads = await leadsResponse.json();
   assert.equal(leads.length, 1);
   assert.equal(leads[0].email, "test@example.com");
+
+  const deleteResponse = await fetch(`${baseUrl}/api/leads/${created.id}`, {
+    method: "DELETE",
+    headers: { "x-admin-key": "changeme" },
+  });
+  assert.equal(deleteResponse.status, 204);
+
+  const emptyLeadsResponse = await fetch(`${baseUrl}/api/leads`, {
+    headers: { "x-admin-key": "changeme" },
+  });
+  assert.deepEqual(await emptyLeadsResponse.json(), []);
 });
