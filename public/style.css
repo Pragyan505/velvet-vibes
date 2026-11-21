@@ -1,0 +1,57 @@
+/* Colors taken from the Velvet Vibes logo: fiery orange into gold, on deep ember */
+:root {
+  --ember: #1c0b04;
+  --orange: #f26a0f;
+  --amber: #ffa800;
+  --gold: #ffd84a;
+  --cream: #fff6e6;
+  --line: #ecd3ad;
+  --fire: linear-gradient(135deg, var(--orange), var(--amber) 60%, var(--gold));
+  --display: "Bricolage Grotesque", system-ui, sans-serif;
+  --body: "Hanken Grotesk", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font: 400 1.0625rem/1.6 var(--body); color: var(--ember); background: var(--cream); }
+h1, h2, h3 { font-family: var(--display); line-height: 1.1; margin: 0 0 .5em; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+.top { display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  padding: .75rem clamp(1rem, 5vw, 4rem); background: var(--ember); color: var(--cream); }
+.brand { display: flex; align-items: center; gap: .75rem; text-decoration: none; color: inherit; font: 800 1.35rem var(--display); }
+.brand img { border-radius: 50%; background: #fff; }
+nav { display: flex; align-items: center; gap: 1.25rem; }
+nav a { color: var(--cream); text-decoration: none; font-weight: 600; }
+nav .call { background: var(--fire); color: var(--ember); padding: .5rem 1rem; border-radius: 999px; }
+
+.hero { display: grid; grid-template-columns: 1.1fr .9fr; gap: 3rem; align-items: start;
+  padding: clamp(2.5rem, 7vw, 5.5rem) clamp(1rem, 5vw, 4rem);
+  background: radial-gradient(60% 80% at 20% 0%, rgba(242,106,15,.55), transparent 70%), var(--ember); color: var(--cream); }
+.hero h1 { font-size: clamp(2.4rem, 5.5vw, 4.5rem); font-weight: 800; max-width: 14ch;
+  background: var(--fire); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero p { max-width: 44ch; font-size: 1.15rem; }
+
+.card { background: var(--cream); color: var(--ember); padding: 1.75rem; border-radius: 10px; display: grid; gap: .9rem; }
+.card h2 { font-size: 1.6rem; margin: 0; }
+label { display: grid; gap: .25rem; font-weight: 600; font-size: .95rem; }
+input, select { font: inherit; padding: .65rem .75rem; border: 1px solid var(--line); border-radius: 6px; background: #fff; color: var(--ember); }
+button { font: 800 1rem var(--display); padding: .9rem 1rem; border: 0; border-radius: 6px; background: var(--fire); color: var(--ember); cursor: pointer; }
+button:hover { filter: brightness(1.08); }
+button:disabled { opacity: .6; cursor: wait; }
+#form-msg { margin: 0; min-height: 1.5em; font-weight: 600; }
+#form-msg.error { color: #b3200f; }
+#form-msg.ok { color: #1f6b34; }
+
+.services { padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1rem, 5vw, 4rem); }
+.service-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+.service-list article { border-top: 4px solid var(--orange); padding-top: 1rem; }
+footer { padding: 1.5rem clamp(1rem, 5vw, 4rem); font-size: .9rem; }
+
+@media (max-width: 800px) { .hero { grid-template-columns: 1fr; } nav a:not(.call) { display: none; } }
+
+/* Photo strip */
+.strip { background: var(--ember); }
+.strip-caption { margin: 0; padding: clamp(1.5rem, 4vw, 2.75rem) 1rem; text-align: center; font-weight: 800;
+  font-size: clamp(1.6rem, 3.5vw, 2.6rem); background: var(--fire); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.strip-photos { display: grid; grid-template-columns: repeat(4, 1fr); }
+.strip-photos img { width: 100%; height: clamp(260px, 32vw, 440px); object-fit: cover; object-position: center 25%; display: block; }
+@media (max-width: 800px) { .strip-photos { grid-template-columns: repeat(2, 1fr); } .strip-photos img { height: 260px; } }
